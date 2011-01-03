@@ -1,0 +1,13 @@
+This is to remove tables and shards unused by flock.  Usage should be simple, assuming you have gizzmo setup properly to work with your intended service.  There aren't any arguments to any commands.
+
+1. ./generate-operations.sh
+
+   This will dump a bunch of text files in the current directory.
+
+2. ./unlink.sh
+
+   This will use gizzmo and the text files to delete shards from the nameserver and move tables to *_todelete.  This will not destroy any data.
+
+3. ./remove-tables.sh
+
+   This step drops all tables named \*to\_delete\*
